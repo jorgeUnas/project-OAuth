@@ -68,6 +68,9 @@ app.use(express.static(__dirname + '/public'));
 /*
  * Routes
 */
+app.get('/auth/github',
+  passport.authenticate('github', { scope: [] })
+);
 
 app.get('/', (req, res) => {
   res.render('index', { user: req.user });
