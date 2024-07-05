@@ -42,6 +42,8 @@ passport.use(new GitHubStrategy({
 */
 app.use(passport.initialize())
 
+app.use(passport.session());
+
 app.use(session({
   secret:'codecademy', 
   resave: false,
