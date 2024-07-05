@@ -72,6 +72,16 @@ app.get('/auth/github',
   passport.authenticate('github', { scope: ['user'] })
 );
 
+//implement the Authorization callback URL, which was defined in the GitHub application settings. This is where GitHub will redirect after a user authorizes it.
+
+
+app.get('/auth/github/callback',
+  passport.authenticate('github', { 
+    failureRedirect: '/login',  // redirect users back to the login page in the event of a failed authorization
+    successRedirect: '/'   // redirect users to the home page after a successful authorization attempt
+  })
+);
+
 app.get('/', (req, res) => {
   res.render('index', { user: req.user });
 })
