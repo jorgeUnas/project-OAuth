@@ -112,3 +112,7 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
  * ensureAuthenticated Callback Function
 */
 
+const ensureAuthenticated = (req, res, next) => {
+  if(req.isAuthenticated()){ return next() };
+  res.redirect('/redirect');
+}
