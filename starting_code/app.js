@@ -26,7 +26,14 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 /*
  * Passport Configurations
 */
-
+passport.use(new GitHubStrategy({
+    clientID: 'Ov23liqzO9kobd6OycVn',
+    clientSecret: '3196a58dbb2aad2f2ffb41fc5820ffbec6e91409',
+    callbackURL: "http://localhost:3000/auth/github/callback"
+    }, function(accessToken, refreshToken, profile, done) {
+         return done(null, profile);
+  })
+)
 
 
 
