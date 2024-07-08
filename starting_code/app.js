@@ -37,12 +37,10 @@ passport.use(new GitHubStrategy({
 
 
 
-
-
-
 /*
  *  Express Project Setup
 */
+app.use(passport.initialize())
 
 app.use(session({
   secret:'codecademy', 
